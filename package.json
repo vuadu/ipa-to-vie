@@ -1,0 +1,16 @@
+{
+  "name": "ipa-to-vie",
+  "version": "1.0.0",
+  "description": "Transcribe English IPA to Vietnamese Phonetic",
+  "author": "vuadu.kietttran",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["/dist"],
+  "scripts": {
+    "ts": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  }
+}
