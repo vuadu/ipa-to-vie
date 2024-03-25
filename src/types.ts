@@ -1,4 +1,4 @@
-import { Syllable } from "./parser";
+import { Syllable } from "./parser.generated";
 
 export interface SyllableToVieProps {
   syllable: Syllable;

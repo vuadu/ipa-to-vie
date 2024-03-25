@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  push:
+    paths:
+      [
+        '.github/workflows/test.yml',
+        'test/**',
+        'src/**',
+      ]
+    branches: [main]
+  pull_request:
+    paths:
+      [
+        '.github/workflows/test.yml',
+        'test/**',
+        'src/**',
+      ]
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.19.1'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn
+
+      - name: Test
+        run: yarn test

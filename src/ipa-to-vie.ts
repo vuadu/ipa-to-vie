@@ -6,7 +6,7 @@ import {
   LETTER_MAPPING,
   NULL_MAPPING,
 } from "./constants";
-import { parse } from "./parser";
+import { parse } from "./parser.generated";
 import { SyllableToVieProps, VieVowelEpenthesisOptions } from "./types";
 
 export const addTonalMarkToVowel = (vie: string, tonalMark: string) => {
