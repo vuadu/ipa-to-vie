@@ -36,7 +36,7 @@ Vowel Epenthesis options for Vietnamese transcription
 import { ipaToVie } from 'ipa-to-vie';
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/'); // acquaintanceship
-console.log(viePhonetic) // ờ-QUÂY-n_-thờn-x_-sịp
+console.log(viePhonetic) // ờ-QUÂY-nờ-thờn-xờ-sịp
 ```
 
 ```ts
@@ -51,8 +51,8 @@ console.log(viePhonetic) // ờ-QUÂY-thờn-sịp
 ```ts
 import { ipaToVie } from 'ipa-to-vie';
 
-const options = { replacement: "ơ" };
+const options = { replacement: "_" };
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/', options); // acquaintanceship
-console.log(viePhonetic) // ờ-QUÂY-nờ-thờn-xờ-sịp
+console.log(viePhonetic) // ờ-QUÂY-n_-thờn-x_-sịp
 ```

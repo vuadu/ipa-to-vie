@@ -31,5 +31,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: Generate parser
+        run: yarn gen:parser
       - name: Test
         run: yarn test

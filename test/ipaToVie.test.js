@@ -19,29 +19,29 @@ it("vieVowelEpenthesis default", async () => {
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
-      "vie": "ờ-QUÂY-n_-thờn-x_-sịp",
+      "vie": "ờ-QUÂY-nờ-thờn-xờ-sịp",
     },
   ],
   "apple": [
     {
       "ipa": "/ˈæpəɫ/",
-      "vie": "E-pờ-l_",
+      "vie": "E-pờ-lờ",
     },
   ],
   "apply": [
     {
       "ipa": "/əˈpɫaɪ/",
-      "vie": "ờ-P_-lài",
+      "vie": "ờ-PƠ-lài",
     },
   ],
   "market": [
     {
       "ipa": "/ˈmɑɹkət/, /ˈmɑɹkɪt/",
-      "vie": "MA-r_-kợt",
+      "vie": "MA-rờ-kợt",
     },
     {
       "ipa": "/ˈmɑɹkət/, /ˈmɑɹkɪt/",
-      "vie": "MA-r_-kịt",
+      "vie": "MA-rờ-kịt",
     },
   ],
 }
@@ -109,58 +109,13 @@ it("vieVowelEpenthesis skipLast", async () => {
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
-      "vie": "ờ-QUÂY-n_-thờn-x_-sịp",
-    },
-  ],
-  "apple": [
-    {
-      "ipa": "/ˈæpəɫ/",
-      "vie": "E-pờ",
-    },
-  ],
-  "apply": [
-    {
-      "ipa": "/əˈpɫaɪ/",
-      "vie": "ờ-P_-lài",
-    },
-  ],
-  "market": [
-    {
-      "ipa": "/ˈmɑɹkət/, /ˈmɑɹkɪt/",
-      "vie": "MA-r_-kợt",
-    },
-    {
-      "ipa": "/ˈmɑɹkət/, /ˈmɑɹkɪt/",
-      "vie": "MA-r_-kịt",
-    },
-  ],
-}
-`);
-});
-
-it("vieVowelEpenthesis replacement", async () => {
-  const options = {
-    replacement: "ơ",
-  };
-
-  const trans = {};
-
-  words.map(({ word, ipa }) => {
-    trans[word] = ipaToVie(ipa, options).map(({ vie }) => ({ ipa, vie }));
-  });
-
-  expect(trans).toMatchInlineSnapshot(`
-{
-  "acquaintanceship": [
-    {
-      "ipa": "/əˈkweɪntənsʃɪp/",
       "vie": "ờ-QUÂY-nờ-thờn-xờ-sịp",
     },
   ],
   "apple": [
     {
       "ipa": "/ˈæpəɫ/",
-      "vie": "E-pờ-lờ",
+      "vie": "E-pờ",
     },
   ],
   "apply": [
@@ -177,6 +132,51 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/ˈmɑɹkət/, /ˈmɑɹkɪt/",
       "vie": "MA-rờ-kịt",
+    },
+  ],
+}
+`);
+});
+
+it("vieVowelEpenthesis replacement", async () => {
+  const options = {
+    replacement: "xxx",
+  };
+
+  const trans = {};
+
+  words.map(({ word, ipa }) => {
+    trans[word] = ipaToVie(ipa, options).map(({ vie }) => ({ ipa, vie }));
+  });
+
+  expect(trans).toMatchInlineSnapshot(`
+{
+  "acquaintanceship": [
+    {
+      "ipa": "/əˈkweɪntənsʃɪp/",
+      "vie": "ờ-QUÂY-nxxx-thờn-xxxx-sịp",
+    },
+  ],
+  "apple": [
+    {
+      "ipa": "/ˈæpəɫ/",
+      "vie": "E-pờ-lxxx",
+    },
+  ],
+  "apply": [
+    {
+      "ipa": "/əˈpɫaɪ/",
+      "vie": "ờ-PXXX-lài",
+    },
+  ],
+  "market": [
+    {
+      "ipa": "/ˈmɑɹkət/, /ˈmɑɹkɪt/",
+      "vie": "MA-rxxx-kợt",
+    },
+    {
+      "ipa": "/ˈmɑɹkət/, /ˈmɑɹkɪt/",
+      "vie": "MA-rxxx-kịt",
     },
   ],
 }

@@ -81,8 +81,7 @@ export const syllableToVie = ({
 
   if (isNullVowel) {
     if (options?.skipAll || (options?.skipLast && isLastSyllable)) return "";
-    if (options?.replacement)
-      vieSyllable = vieSyllable.replaceAll("_", options.replacement);
+    vieSyllable = vieSyllable.replaceAll("_", options?.replacement ?? "ơ");
   } else {
     vieSyllable = vieSyllable.replace(/ki$|li$|mi$|si$|ti$|hi$/g, (match) => {
       switch (match) {
