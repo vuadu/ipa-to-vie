@@ -1,4 +1,4 @@
-# ipa-to-vie
+# @vuadu/ipa-to-vie
 
 Typescript code to Transcribe English IPA to Vietnamese Phonetic.
 
@@ -7,13 +7,13 @@ Typescript code to Transcribe English IPA to Vietnamese Phonetic.
 Using Yarn
 
 ```sh
-yarn add ipa-to-vie
+yarn add @vuadu/ipa-to-vie
 ```
 
 Using NPM
 
 ```sh
-npm install ipa-to-vie
+npm install @vuadu/ipa-to-vie
 ```
 
 ## Usage
@@ -33,14 +33,14 @@ Vowel Epenthesis options for Vietnamese transcription
 #### Examples
 
 ```ts
-import { ipaToVie } from 'ipa-to-vie';
+import { ipaToVie } from '@vuadu/ipa-to-vie';
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/'); // acquaintanceship
 console.log(viePhonetic) // ờ-QUÂY-nờ-thờn-xờ-sịp
 ```
 
 ```ts
-import { ipaToVie } from 'ipa-to-vie';
+import { ipaToVie } from '@vuadu/ipa-to-vie';
 
 const options = { skipAll: true };
 
@@ -49,7 +49,7 @@ console.log(viePhonetic) // ờ-QUÂY-thờn-sịp
 ```
 
 ```ts
-import { ipaToVie } from 'ipa-to-vie';
+import { ipaToVie } from '@vuadu/ipa-to-vie';
 
 const options = { replacement: "_" };
 
