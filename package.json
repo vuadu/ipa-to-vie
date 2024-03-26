@@ -1,5 +1,5 @@
 {
-  "name": "ipa-to-vie",
+  "name": "@vuadu/ipa-to-vie",
   "version": "1.0.0",
   "repository": "https://github.com/vuadu/ipa-to-vie.git",
   "description": "Transcribe English IPA to Vietnamese Phonetic",
