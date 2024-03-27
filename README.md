@@ -22,7 +22,9 @@ npm install @vuadu/ipa-to-vie
 
 #### Options
 
-Vowel Epenthesis options for Vietnamese transcription
+- `uppercaseStress`: boolean - uppercase stress syllable of vietnamese transcription
+
+- `vowelEpenthesis`: object
 
 |             |   type  |               description              |
 |-------------|:-------:|----------------------------------------|
@@ -36,23 +38,32 @@ Vowel Epenthesis options for Vietnamese transcription
 import { ipaToVie } from '@vuadu/ipa-to-vie';
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/'); // acquaintanceship
+console.log(viePhonetic) // ờ-quây-nờ-thờn-xờ-sịp
+```
+
+```ts
+import { ipaToVie } from '@vuadu/ipa-to-vie';
+
+const options = { uppercaseStress: true };
+
+const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/'); // acquaintanceship
 console.log(viePhonetic) // ờ-QUÂY-nờ-thờn-xờ-sịp
 ```
 
 ```ts
 import { ipaToVie } from '@vuadu/ipa-to-vie';
 
-const options = { skipAll: true };
+const options = { vowelEpenthesis: { skipAll: true } };
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/', options); // acquaintanceship
-console.log(viePhonetic) // ờ-QUÂY-thờn-sịp
+console.log(viePhonetic) // ờ-quây-thờn-sịp
 ```
 
 ```ts
 import { ipaToVie } from '@vuadu/ipa-to-vie';
 
-const options = { replacement: "_" };
+const options = { vowelEpenthesis: { replacement: "_" } };
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/', options); // acquaintanceship
-console.log(viePhonetic) // ờ-QUÂY-n_-thờn-x_-sịp
+console.log(viePhonetic) // ờ-quây-n_-thờn-x_-sịp
 ```

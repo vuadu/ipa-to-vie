@@ -7,7 +7,7 @@ import {
   NULL_MAPPING,
 } from "./constants";
 import { parse } from "./parser.generated";
-import { SyllableToVieProps, VieVowelEpenthesisOptions } from "./types";
+import { IpaToVieOptions, SyllableToVieProps } from "./types";
 
 export const addTonalMarkToVowel = (vie: string, tonalMark: string) => {
   let isAdded = false;
@@ -40,6 +40,20 @@ export const addTonalMark = (vie: string, isStress?: boolean) => {
   } else if (!isStress) {
     return addTonalMarkToVowel(vie, COMBINE_GRAVE);
   } else return vie;
+};
+
+export const vieConsonantRule = (consonant: string, vowel: string) => {
+  if (
+    consonant === "k" &&
+    ["a", "o", "u"].includes(vowel[0].normalize("NFD")[0])
+  ) {
+    return "c" + vowel;
+  }
+  if (consonant === "c" && ["e", "i"].includes(vowel[0].normalize("NFD")[0])) {
+    return "k" + vowel;
+  }
+
+  return consonant + vowel;
 };
 
 export const syllableToVie = ({
@@ -80,34 +94,48 @@ export const syllableToVie = ({
   });
 
   if (isNullVowel) {
-    if (options?.skipAll || (options?.skipLast && isLastSyllable)) return "";
-    vieSyllable = vieSyllable.replaceAll("_", options?.replacement ?? "ơ");
-  } else {
-    vieSyllable = vieSyllable.replace(/ki$|li$|mi$|si$|ti$|hi$/g, (match) => {
-      switch (match) {
-        case "ki":
-          return "ky";
-        case "li":
-          return "ly";
-        case "mi":
-          return "my";
-        case "si":
-          return "sy";
-        case "ti":
-          return "ty";
-        case "hi":
-          return "hy";
-        default:
-          return "";
-      }
+    if (
+      options?.vowelEpenthesis?.skipAll ||
+      (options?.vowelEpenthesis?.skipLast && isLastSyllable)
+    )
+      return "";
+    vieSyllable = vieSyllable.replace(/._/g, (m) => {
+      return vieConsonantRule(
+        m[0],
+        options?.vowelEpenthesis?.replacement ?? "ơ"
+      );
     });
+  } else {
+    vieSyllable = vieSyllable
+      .replace(/ki$|li$|mi$|si$|ti$|hi$/g, (match) => {
+        switch (match) {
+          case "ki":
+            return "ky";
+          case "li":
+            return "ly";
+          case "mi":
+            return "my";
+          case "si":
+            return "sy";
+          case "ti":
+            return "ty";
+          case "hi":
+            return "hy";
+          default:
+            return "";
+        }
+      })
+      .replace(/^k.|^c./g, (m) => vieConsonantRule(m[0], m[1]));
   }
 
   const sylWithTonal = addTonalMark(vieSyllable, syllable.stress);
-  return syllable.stress ? sylWithTonal.toLocaleUpperCase("vi") : sylWithTonal;
+
+  return options?.uppercaseStress && syllable.stress
+    ? sylWithTonal.toLocaleUpperCase("vi")
+    : sylWithTonal;
 };
 
-export const ipaToVie = (ipa: string, options?: VieVowelEpenthesisOptions) => {
+export const ipaToVie = (ipa: string, options?: IpaToVieOptions) => {
   return ipa.split(", ").flatMap((i) => {
     const cleaned = i
       .replaceAll("ɝˈ", "əˈɹ")
