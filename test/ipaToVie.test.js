@@ -187,6 +187,7 @@ const words2 = [
   { word: "cache", ipa: "/ˈkæʃ/, /kæˈʃeɪ/" },
   { word: "cake", ipa: "/ˈkeɪk/" },
   { word: "moscow", ipa: "/ˈmɑˌskoʊ/, /ˈmɔˌskaʊ/" },
+  { word: "pick", ipa: "/ˈpɪk/" },
 ];
 
 it("k & c rule", async () => {
@@ -270,6 +271,12 @@ it("k & c rule", async () => {
       "vie": "mo-xờ-cào",
     },
   ],
+  "pick": [
+    {
+      "ipa": "/ˈpɪk/",
+      "vie": "pích",
+    },
+  ],
 }
 `);
 });
@@ -312,6 +319,12 @@ it("uppercase stress", async () => {
     {
       "ipa": "/ˈmɔˌskaʊ/",
       "vie": "MO-xờ-cào",
+    },
+  ],
+  "pick": [
+    {
+      "ipa": "/ˈpɪk/",
+      "vie": "PÍCH",
     },
   ],
 }
