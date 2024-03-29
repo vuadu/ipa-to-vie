@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "gen:parser": "peggy --plugin ./node_modules/ts-pegjs/dist/tspegjs -o src/parser.generated.ts --cache src/api.pegjs",
+    "prepare": "yarn gen:parser",
     "test": "jest",
     "build": "tsc",
     "prepublishOnly": "yarn build"
