@@ -2,6 +2,11 @@
 
 Typescript code to Transcribe English IPA to Vietnamese Phonetic.
 
+[![Version](https://img.shields.io/npm/v/@vuadu/ipa-to-vie.svg)](https://npmjs.org/package/@vuadu/ipa-to-vie)
+[![Downloads/week](https://img.shields.io/npm/dw/@vuadu/ipa-to-vie.svg)](https://npmjs.org/package/@vuadu/ipa-to-vie)
+[![License](https://img.shields.io/npm/l/@vuadu/ipa-to-vie.svg)](https://github.com/vuadu/ipa-to-vie/blob/main/package.json)
+[![Test](https://github.com/vuadu/ipa-to-vie/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/vuadu/ipa-to-vie/actions/workflows/test.yml)
+
 ## Install
 
 Using Yarn
