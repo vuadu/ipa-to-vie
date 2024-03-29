@@ -5,6 +5,7 @@ const words = [
   { word: "market", ipa: "/ˈmɑɹkət/, /ˈmɑɹkɪt/" }, //
   { word: "apply", ipa: "/əˈpɫaɪ/" },
   { word: "apple", ipa: "/ˈæpəɫ/" },
+  { word: "enjoy", ipa: "/ˌɛnˈdʒɔɪ/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
@@ -32,6 +33,12 @@ it("vieVowelEpenthesis default", async () => {
     {
       "ipa": "/əˈpɫaɪ/",
       "vie": "ờ-pờ-lai",
+    },
+  ],
+  "enjoy": [
+    {
+      "ipa": "/ˌɛnˈdʒɔɪ/",
+      "vie": "èn-doi",
     },
   ],
   "market": [
@@ -79,6 +86,12 @@ it("vieVowelEpenthesis skipAll", async () => {
       "vie": "ờ-lai",
     },
   ],
+  "enjoy": [
+    {
+      "ipa": "/ˌɛnˈdʒɔɪ/",
+      "vie": "èn-doi",
+    },
+  ],
   "market": [
     {
       "ipa": "/ˈmɑɹkət/",
@@ -122,6 +135,12 @@ it("vieVowelEpenthesis skipLast", async () => {
     {
       "ipa": "/əˈpɫaɪ/",
       "vie": "ờ-pờ-lai",
+    },
+  ],
+  "enjoy": [
+    {
+      "ipa": "/ˌɛnˈdʒɔɪ/",
+      "vie": "èn-doi",
     },
   ],
   "market": [
@@ -169,6 +188,12 @@ it("vieVowelEpenthesis replacement", async () => {
       "vie": "ờ-pxxx-lai",
     },
   ],
+  "enjoy": [
+    {
+      "ipa": "/ˌɛnˈdʒɔɪ/",
+      "vie": "èn-doi",
+    },
+  ],
   "market": [
     {
       "ipa": "/ˈmɑɹkət/",
@@ -203,19 +228,19 @@ it("k & c rule", async () => {
               ({ ipa, vie }) => ({
                 ipa,
                 vie,
-              })
+              }),
             ),
             i: ipaToVie(i, { vowelEpenthesis: { replacement: "i" } }).map(
               ({ ipa, vie }) => ({
                 ipa,
                 vie,
-              })
+              }),
             ),
             êu: ipaToVie(i, { vowelEpenthesis: { replacement: "êu" } }).map(
               ({ ipa, vie }) => ({
                 ipa,
                 vie,
-              })
+              }),
             ),
           }
         : ipaToVie(i).map(({ ipa, vie }) => ({
@@ -296,7 +321,7 @@ it("uppercase stress", async () => {
       ({ ipa, vie }) => ({
         ipa,
         vie,
-      })
+      }),
     );
   });
 

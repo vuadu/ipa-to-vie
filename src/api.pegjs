@@ -1,7 +1,7 @@
 Word = " "* "/"? syllables:("ˌ"?  Syllable)* "/"? " "* {
 	return syllables.map(p => p[1])
 }
-Syllable = 
+Syllable =
 	stress:"ˈ"? head:Consonant tail:(Vowel EndingConsonant) !(Diphthong / Vowel)  {
     return {
     	stress: !!stress || undefined,
@@ -32,10 +32,10 @@ Syllable =
         parts: [null, tail]
         }
     }
-SyllableEnding = 
+SyllableEnding =
 	tail:(Vowel EndingConsonant) !Vowel { return tail.filter(c => c).join("") }
-    
-Consonant   = 
+
+Consonant   =
   "b"
   / "tʃ"
   / "tɹ"
@@ -62,7 +62,7 @@ Consonant   =
   / "d"
   / "ð"
 
-EndingConsonant   = 
+EndingConsonant   =
   "b"
   / "t" !"ʃ" { return text() }
   / "k"
@@ -73,6 +73,6 @@ EndingConsonant   =
   / "e"
   / "p"
   / "h"
-  / "ŋ" 
-Diphthong = "oʊ" / "eɪ" / "aɪ" / "aʊ" / "ju" / "jə" / "jæ" / "jɑ" / "jʊ" / "jɛ" / "jɪ" / "jɔ" / "ji" / "joʊ" / "jaʊ" / "jeɪ" / "əj" 
+  / "ŋ"
+Diphthong = "oʊ" / "eɪ" / "aɪ" / "aʊ" / "ju" / "jə" / "jæ" / "jɑ" / "jʊ" / "jɛ" / "jɪ" / "jɔ" / "ji" / "joʊ" / "jaʊ" / "jeɪ" / "əj" / "ɔɪ"
 Vowel = "a" / "ʊ" / "ə" / "ɔ" / "u" / "ɪ" / "o" / "ɛ" / "e" / "i" / "ɑ" / "ɝ" / "æ" / "j"
