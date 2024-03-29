@@ -1,15 +1,13 @@
 {
   "name": "@vuadu/ipa-to-vie",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": "https://github.com/vuadu/ipa-to-vie.git",
   "description": "Transcribe English IPA to Vietnamese Phonetic",
   "author": "vuadu.kietttran",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "/dist"
-  ],
+  "files": ["/dist"],
   "scripts": {
     "gen:parser": "peggy --plugin ./node_modules/ts-pegjs/dist/tspegjs -o src/parser.generated.ts --cache src/api.pegjs",
     "prepare": "yarn gen:parser",
@@ -24,11 +22,5 @@
     "ts-pegjs": "^4.2.1",
     "typescript": "^5.4.3"
   },
-  "keywords": [
-    "phonetics",
-    "typescript",
-    "ipa",
-    "vietnam",
-    "english"
-  ]
+  "keywords": ["phonetics", "typescript", "ipa", "vietnam", "english"]
 }
