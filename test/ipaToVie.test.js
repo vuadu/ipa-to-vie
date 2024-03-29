@@ -31,7 +31,7 @@ it("vieVowelEpenthesis default", async () => {
   "apply": [
     {
       "ipa": "/əˈpɫaɪ/",
-      "vie": "ờ-pơ-lài",
+      "vie": "ờ-pờ-lai",
     },
   ],
   "market": [
@@ -76,7 +76,7 @@ it("vieVowelEpenthesis skipAll", async () => {
   "apply": [
     {
       "ipa": "/əˈpɫaɪ/",
-      "vie": "ờ-lài",
+      "vie": "ờ-lai",
     },
   ],
   "market": [
@@ -121,7 +121,7 @@ it("vieVowelEpenthesis skipLast", async () => {
   "apply": [
     {
       "ipa": "/əˈpɫaɪ/",
-      "vie": "ờ-pơ-lài",
+      "vie": "ờ-pờ-lai",
     },
   ],
   "market": [
@@ -166,7 +166,7 @@ it("vieVowelEpenthesis replacement", async () => {
   "apply": [
     {
       "ipa": "/əˈpɫaɪ/",
-      "vie": "ờ-pxxx-lài",
+      "vie": "ờ-pxxx-lai",
     },
   ],
   "market": [
@@ -188,6 +188,7 @@ const words2 = [
   { word: "cake", ipa: "/ˈkeɪk/" },
   { word: "moscow", ipa: "/ˈmɑˌskoʊ/, /ˈmɔˌskaʊ/" },
   { word: "pick", ipa: "/ˈpɪk/" },
+  { word: "classroom", ipa: "/ˈkɫæsˌɹum/" },
 ];
 
 it("k & c rule", async () => {
@@ -261,6 +262,12 @@ it("k & c rule", async () => {
       },
     ],
   },
+  "classroom": [
+    {
+      "ipa": "/ˈkɫæsˌɹum/",
+      "vie": "cờ-le-xờ-rùm",
+    },
+  ],
   "moscow": [
     {
       "ipa": "/ˈmɑˌskoʊ/",
@@ -311,6 +318,12 @@ it("uppercase stress", async () => {
       "vie": "CÂY-cờ",
     },
   ],
+  "classroom": [
+    {
+      "ipa": "/ˈkɫæsˌɹum/",
+      "vie": "cờ-LE-xờ-rùm",
+    },
+  ],
   "moscow": [
     {
       "ipa": "/ˈmɑˌskoʊ/",
@@ -325,6 +338,214 @@ it("uppercase stress", async () => {
     {
       "ipa": "/ˈpɪk/",
       "vie": "PÍCH",
+    },
+  ],
+}
+`);
+});
+
+const words3 = [
+  { word: "classroom", ipa: "/ˈkɫæsˌɹum/" },
+  { word: "straightforward", ipa: "/ˈstɹeɪtˈfɔɹwɝd/" },
+  { word: "spray", ipa: "/ˈspɹeɪ/" },
+  { word: "screw", ipa: "/ˈskɹu/" },
+  { word: "squire", ipa: "/ˈskwaɪɹ/" },
+];
+
+it("CCV & CCCV stress", async () => {
+  const trans = {};
+
+  words3.map(({ word, ipa: i }) => {
+    trans[word] = ipaToVie(i, { uppercaseStress: true });
+  });
+
+  expect(trans).toMatchInlineSnapshot(`
+{
+  "classroom": [
+    {
+      "ast": [
+        {
+          "parts": [
+            "k",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "ɫ",
+            "æ",
+          ],
+          "stress": true,
+        },
+        {
+          "parts": [
+            "s",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "ɹ",
+            "um",
+          ],
+          "stress": undefined,
+        },
+      ],
+      "ipa": "/ˈkɫæsˌɹum/",
+      "vie": "cờ-LE-xờ-rùm",
+    },
+  ],
+  "screw": [
+    {
+      "ast": [
+        {
+          "parts": [
+            "s",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "k",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "ɹ",
+            "u",
+          ],
+          "stress": true,
+        },
+      ],
+      "ipa": "/ˈskɹu/",
+      "vie": "xờ-cờ-RU",
+    },
+  ],
+  "spray": [
+    {
+      "ast": [
+        {
+          "parts": [
+            "s",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "p",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "ɹ",
+            "eɪ",
+          ],
+          "stress": true,
+        },
+      ],
+      "ipa": "/ˈspɹeɪ/",
+      "vie": "xờ-pờ-RÂY",
+    },
+  ],
+  "squire": [
+    {
+      "ast": [
+        {
+          "parts": [
+            "s",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "kw",
+            "aɪ",
+          ],
+          "stress": true,
+        },
+        {
+          "parts": [
+            "ɹ",
+            null,
+          ],
+          "stress": undefined,
+        },
+      ],
+      "ipa": "/ˈskwaɪɹ/",
+      "vie": "xờ-QUAI-rờ",
+    },
+  ],
+  "straightforward": [
+    {
+      "ast": [
+        {
+          "parts": [
+            "s",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "tɹ",
+            "eɪ",
+          ],
+          "stress": true,
+        },
+        {
+          "parts": [
+            "t",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "f",
+            "ɔ",
+          ],
+          "stress": true,
+        },
+        {
+          "parts": [
+            "ɹ",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "w",
+            "ə",
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "ɹ",
+            null,
+          ],
+          "stress": undefined,
+        },
+        {
+          "parts": [
+            "d",
+            null,
+          ],
+          "stress": undefined,
+        },
+      ],
+      "ipa": "/ˈstɹeɪtˈfɔɹwɝd/",
+      "vie": "xờ-TRÂY-thờ-PHO-rờ-uờ-rờ-đờ",
     },
   ],
 }

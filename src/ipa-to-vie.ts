@@ -148,6 +148,10 @@ export const ipaToVie = (ipa: string, options?: IpaToVieOptions) => {
       }
       const lastSyllableIdx = ast.length - 1;
       const vie = ast.reduce((acc, syllable, idx) => {
+        if (syllable.stress && !syllable.parts[1] && !!ast[idx + 1]) {
+          syllable.stress = undefined;
+          ast[idx + 1].stress = true;
+        }
         const vieSyl = syllableToVie({
           syllable,
           options,
