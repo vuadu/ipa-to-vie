@@ -6,6 +6,8 @@ const words = [
   { word: "apply", ipa: "/əˈpɫaɪ/" },
   { word: "apple", ipa: "/ˈæpəɫ/" },
   { word: "enjoy", ipa: "/ˌɛnˈdʒɔɪ/" },
+  { word: "duck", ipa: "/ˈdək/" },
+  { word: "dark", ipa: "/ˈdɑɹk/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
