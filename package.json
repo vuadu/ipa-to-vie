@@ -7,7 +7,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["/dist"],
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "gen:parser": "peggy --plugin ./node_modules/ts-pegjs/dist/tspegjs -o src/parser.generated.ts --cache src/api.pegjs",
     "prepare": "yarn gen:parser",
@@ -15,12 +17,20 @@
     "build": "tsc",
     "prepublishOnly": "yarn build"
   },
+  "pre-commit": ["test"],
   "devDependencies": {
     "jest": "^29.7.0",
     "peggy": "^3.0.2",
+    "pre-commit": "^1.2.2",
     "ts-jest": "^29.1.2",
     "ts-pegjs": "^4.2.1",
     "typescript": "^5.4.3"
   },
-  "keywords": ["phonetics", "typescript", "ipa", "vietnam", "english"]
+  "keywords": [
+    "phonetics",
+    "typescript",
+    "ipa",
+    "vietnam",
+    "english"
+  ]
 }

@@ -37,6 +37,18 @@ it("vieVowelEpenthesis default", async () => {
       "vie": "ờ-pờ-lai",
     },
   ],
+  "dark": [
+    {
+      "ipa": "/ˈdɑɹk/",
+      "vie": "đa-rờ-cờ",
+    },
+  ],
+  "duck": [
+    {
+      "ipa": "/ˈdək/",
+      "vie": "đắc",
+    },
+  ],
   "enjoy": [
     {
       "ipa": "/ˌɛnˈdʒɔɪ/",
@@ -86,6 +98,18 @@ it("vieVowelEpenthesis skipAll", async () => {
     {
       "ipa": "/əˈpɫaɪ/",
       "vie": "ờ-lai",
+    },
+  ],
+  "dark": [
+    {
+      "ipa": "/ˈdɑɹk/",
+      "vie": "đa",
+    },
+  ],
+  "duck": [
+    {
+      "ipa": "/ˈdək/",
+      "vie": "đắc",
     },
   ],
   "enjoy": [
@@ -139,6 +163,18 @@ it("vieVowelEpenthesis skipLast", async () => {
       "vie": "ờ-pờ-lai",
     },
   ],
+  "dark": [
+    {
+      "ipa": "/ˈdɑɹk/",
+      "vie": "đa-rờ",
+    },
+  ],
+  "duck": [
+    {
+      "ipa": "/ˈdək/",
+      "vie": "đắc",
+    },
+  ],
   "enjoy": [
     {
       "ipa": "/ˌɛnˈdʒɔɪ/",
@@ -188,6 +224,18 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/əˈpɫaɪ/",
       "vie": "ờ-pxxx-lai",
+    },
+  ],
+  "dark": [
+    {
+      "ipa": "/ˈdɑɹk/",
+      "vie": "đa-rxxx-kxxx",
+    },
+  ],
+  "duck": [
+    {
+      "ipa": "/ˈdək/",
+      "vie": "đắc",
     },
   ],
   "enjoy": [
