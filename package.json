@@ -1,7 +1,10 @@
 {
   "name": "@vuadu/ipa-to-vie",
   "version": "0.1.6",
-  "repository": "https://github.com/vuadu/ipa-to-vie.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vuadu/ipa-to-vie.git"
+  },
   "description": "Transcribe English IPA to Vietnamese Phonetic",
   "author": "vuadu.kietttran",
   "license": "MIT",
@@ -17,7 +20,9 @@
     "build": "tsc",
     "prepublishOnly": "yarn build"
   },
-  "pre-commit": ["test"],
+  "pre-commit": [
+    "test"
+  ],
   "devDependencies": {
     "jest": "^29.7.0",
     "peggy": "^3.0.2",
