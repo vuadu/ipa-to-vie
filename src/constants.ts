@@ -110,6 +110,7 @@ export const ENDING_VOWEL_MAPPING: Record<string, string> = {
   ɪŋ: "inh",
   ɪɛ: "ie",
   ɪɡ: "ich",
+  jəŋ: "giang",
   ʊ: "u",
   ʊb: "up",
   ʊk: "uc",

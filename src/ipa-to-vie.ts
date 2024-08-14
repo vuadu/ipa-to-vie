@@ -43,10 +43,7 @@ export const addTonalMark = (vie: string, isStress?: boolean) => {
 };
 
 export const vieConsonantRule = (consonant: string, vowel: string) => {
-  if (
-    consonant === "k" &&
-    ["a", "o", "u"].includes(vowel[0].normalize("NFD")[0])
-  ) {
+  if (consonant === "k" && ["a", "o", "u"].includes(vowel[0].normalize("NFD")[0])) {
     return "c" + vowel;
   }
   if (consonant === "c" && ["e", "i"].includes(vowel[0].normalize("NFD")[0])) {
@@ -56,18 +53,12 @@ export const vieConsonantRule = (consonant: string, vowel: string) => {
   return consonant + vowel;
 };
 
-export const syllableToVie = ({
-  syllable,
-  options,
-  isLastSyllable,
-}: SyllableToVieProps) => {
-  const isNullVowel = ENDING_VOWEL_MAPPING[syllable.parts[1] ?? ""]
-    ? false
-    : true;
+export const syllableToVie = ({ syllable, options, isLastSyllable }: SyllableToVieProps) => {
+  const isNullVowel = ENDING_VOWEL_MAPPING[syllable.parts[1] ?? ""] ? false : true;
 
   let vieSyllable = `${LETTER_MAPPING[syllable.parts[0] ?? ""] ?? ""}${
     ENDING_VOWEL_MAPPING[syllable.parts[1] ?? ""] ?? NULL_MAPPING
-  }`.replace(/wi|wa|wâ|we|wơ|ge|gi|gê|qui/g, (match) => {
+  }`.replace(/wi|wa|wâ|we|wơ|ge|gi(?!a)|gê|qui/g, (match) => {
     switch (match) {
       case "wi":
         return "uy";
@@ -94,16 +85,10 @@ export const syllableToVie = ({
   });
 
   if (isNullVowel) {
-    if (
-      options?.vowelEpenthesis?.skipAll ||
-      (options?.vowelEpenthesis?.skipLast && isLastSyllable)
-    )
+    if (options?.vowelEpenthesis?.skipAll || (options?.vowelEpenthesis?.skipLast && isLastSyllable))
       return "";
     vieSyllable = vieSyllable.replace(/._/g, (m) => {
-      return vieConsonantRule(
-        m[0],
-        options?.vowelEpenthesis?.replacement ?? "ơ"
-      );
+      return vieConsonantRule(m[0], options?.vowelEpenthesis?.replacement ?? "ơ");
     });
   } else {
     vieSyllable = vieSyllable
@@ -137,10 +122,7 @@ export const syllableToVie = ({
 
 export const ipaToVie = (ipa: string, options?: IpaToVieOptions) => {
   return ipa.split(", ").flatMap((i) => {
-    const cleaned = i
-      .replaceAll("ɝˈ", "əˈɹ")
-      .replaceAll("ɝ", "əɹ")
-      .replaceAll("ˌ", "");
+    const cleaned = i.replaceAll("ɝˈ", "əˈɹ").replaceAll("ɝ", "əɹ").replaceAll("ˌ", "");
     try {
       const ast = parse(cleaned);
       if (ast.find((s) => /,/.test(s.parts[1] ?? ""))) {
