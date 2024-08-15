@@ -47,7 +47,7 @@ it("vieVowelEpenthesis default", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đắc",
+      "vie": "đấc",
     },
   ],
   "enjoy": [
@@ -116,7 +116,7 @@ it("vieVowelEpenthesis skipAll", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đắc",
+      "vie": "đấc",
     },
   ],
   "enjoy": [
@@ -185,7 +185,7 @@ it("vieVowelEpenthesis skipLast", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đắc",
+      "vie": "đấc",
     },
   ],
   "enjoy": [
@@ -254,7 +254,7 @@ it("vieVowelEpenthesis replacement", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đắc",
+      "vie": "đấc",
     },
   ],
   "enjoy": [
