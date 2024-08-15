@@ -6,7 +6,7 @@
     "url": "https://github.com/vuadu/ipa-to-vie.git"
   },
   "description": "Transcribe English IPA to Vietnamese Phonetic",
-  "author": "vuadu.kietttran",
+  "author": "Rezza Inc.",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
