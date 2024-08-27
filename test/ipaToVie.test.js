@@ -9,6 +9,7 @@ const words = [
   { word: "duck", ipa: "/ˈdək/" },
   { word: "dark", ipa: "/ˈdɑɹk/" },
   { word: "young", ipa: "/ˈjəŋ/" },
+  { word: "chrome", ipa: "/ˈkɹoʊm/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
@@ -36,6 +37,12 @@ it("vieVowelEpenthesis default", async () => {
     {
       "ipa": "/əˈpɫaɪ/",
       "vie": "ờ-pờ-lai",
+    },
+  ],
+  "chrome": [
+    {
+      "ipa": "/ˈkɹoʊm/",
+      "vie": "cờ-râu-mờ",
     },
   ],
   "dark": [
@@ -107,6 +114,12 @@ it("vieVowelEpenthesis skipAll", async () => {
       "vie": "ờ-lai",
     },
   ],
+  "chrome": [
+    {
+      "ipa": "/ˈkɹoʊm/",
+      "vie": "-râu",
+    },
+  ],
   "dark": [
     {
       "ipa": "/ˈdɑɹk/",
@@ -176,6 +189,12 @@ it("vieVowelEpenthesis skipLast", async () => {
       "vie": "ờ-pờ-lai",
     },
   ],
+  "chrome": [
+    {
+      "ipa": "/ˈkɹoʊm/",
+      "vie": "cờ-râu",
+    },
+  ],
   "dark": [
     {
       "ipa": "/ˈdɑɹk/",
@@ -202,6 +221,80 @@ it("vieVowelEpenthesis skipLast", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-rờ-kịt",
+    },
+  ],
+  "young": [
+    {
+      "ipa": "/ˈjəŋ/",
+      "vie": "giang",
+    },
+  ],
+}
+`);
+});
+it("vieVowelEpenthesis empty replacement", async () => {
+  const options = {
+    vowelEpenthesis: { replacement: "" },
+  };
+
+  const trans = {};
+
+  words.map(({ word, ipa: i }) => {
+    trans[word] = ipaToVie(i, options).map(({ ipa, vie }) => ({ ipa, vie }));
+  });
+
+  expect(trans).toMatchInlineSnapshot(`
+{
+  "acquaintanceship": [
+    {
+      "ipa": "/əˈkweɪntənsʃɪp/",
+      "vie": "ờ-quây-n-thờn-x-sịp",
+    },
+  ],
+  "apple": [
+    {
+      "ipa": "/ˈæpəɫ/",
+      "vie": "e-pờ-l",
+    },
+  ],
+  "apply": [
+    {
+      "ipa": "/əˈpɫaɪ/",
+      "vie": "ờ-p-lai",
+    },
+  ],
+  "chrome": [
+    {
+      "ipa": "/ˈkɹoʊm/",
+      "vie": "k-râu-m",
+    },
+  ],
+  "dark": [
+    {
+      "ipa": "/ˈdɑɹk/",
+      "vie": "đa-r-k",
+    },
+  ],
+  "duck": [
+    {
+      "ipa": "/ˈdək/",
+      "vie": "đấc",
+    },
+  ],
+  "enjoy": [
+    {
+      "ipa": "/ˌɛnˈdʒɔɪ/",
+      "vie": "èn-doi",
+    },
+  ],
+  "market": [
+    {
+      "ipa": "/ˈmɑɹkət/",
+      "vie": "ma-r-cợt",
+    },
+    {
+      "ipa": "/ˈmɑɹkɪt/",
+      "vie": "ma-r-kịt",
     },
   ],
   "young": [
@@ -243,6 +336,12 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/əˈpɫaɪ/",
       "vie": "ờ-pxxx-lai",
+    },
+  ],
+  "chrome": [
+    {
+      "ipa": "/ˈkɹoʊm/",
+      "vie": "kxxx-râu-mxxx",
     },
   ],
   "dark": [

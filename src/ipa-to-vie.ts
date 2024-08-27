@@ -43,10 +43,10 @@ export const addTonalMark = (vie: string, isStress?: boolean) => {
 };
 
 export const vieConsonantRule = (consonant: string, vowel: string) => {
-  if (consonant === "k" && ["a", "o", "u"].includes(vowel[0].normalize("NFD")[0])) {
+  if (vowel && consonant === "k" && ["a", "o", "u"].includes(vowel[0].normalize("NFD")[0])) {
     return "c" + vowel;
   }
-  if (consonant === "c" && ["e", "i"].includes(vowel[0].normalize("NFD")[0])) {
+  if (vowel && consonant === "c" && ["e", "i"].includes(vowel[0].normalize("NFD")[0])) {
     return "k" + vowel;
   }
 
