@@ -1,34 +1,34 @@
-Word = " "* "/"? syllables:("ˌ"?  Syllable)* "/"? " "* {
-    return syllables.map(p => p[1])
+Word = " "* "/"? syllables:Syllable* "/"? " "* {
+    return syllables
 }
 Syllable =
-    stress:"ˈ"? head:Consonant tail:(Vowel EndingConsonant) !(Diphthong / Vowel)  {
+    stress:("ˈ" / "ˌ")? head:Consonant tail:(Vowel EndingConsonant) !(Diphthong / Vowel)  {
     return {
-        stress: !!stress || undefined,
+        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [head, tail.filter(c => c).join("")]
         }
     }
-    / stress:"ˈ"? head:Consonant tail:(Diphthong / Vowel)? {
+    / stress:("ˈ" / "ˌ")? head:Consonant tail:(Diphthong / Vowel)? {
     return {
-        stress: !!stress || undefined,
+        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [head, tail]
         }
     }
-    / stress:"ˈ"? tail:(Vowel EndingConsonant) !Vowel {
+    / stress:("ˈ" / "ˌ")? tail:(Vowel EndingConsonant) !Vowel {
     return {
-        stress: !!stress || undefined,
+        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [null, tail.filter(c => c).join("")]
         }
     }
-    / stress:"ˈ"? tail:(Diphthong EndingConsonant?) {
+    / stress:("ˈ" / "ˌ")? tail:(Diphthong EndingConsonant?) {
     return {
-        stress: !!stress || undefined,
+        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [null, tail.filter(c => c).join("")]
         }
     }
-    / stress:"ˈ"? tail:Vowel {
+    / stress:("ˈ" / "ˌ")? tail:Vowel {
     return {
-        stress: !!stress || undefined,
+        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [null, tail]
         }
     }

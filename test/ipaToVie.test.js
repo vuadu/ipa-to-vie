@@ -11,7 +11,8 @@ const words = [
   { word: "young", ipa: "/ˈjəŋ/" },
   { word: "chrome", ipa: "/ˈkɹoʊm/" },
   { word: "angel", ipa: "/ˈeɪndʒəɫ/" },
-  { word: "mcdonalds", ipa: "/məkˈdɑnəɫdz/" },
+  { word: "McDonald's", ipa: "/məkˈdɑnəɫdz/" },
+  { word: "Responsibility", ipa: "/ɹiˌspɑnsəˈbɪɫəti/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
@@ -23,6 +24,18 @@ it("vieVowelEpenthesis default", async () => {
 
   expect(trans).toMatchInlineSnapshot(`
 {
+  "McDonald's": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-lờ-đờ-dờ",
+    },
+  ],
+  "Responsibility": [
+    {
+      "ipa": "/ɹiˌspɑnsəˈbɪɫəti/",
+      "vie": "rì-xờ-pan-xờ-bi-lờ-thỳ",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
@@ -81,12 +94,6 @@ it("vieVowelEpenthesis default", async () => {
       "vie": "ma-rờ-kịt",
     },
   ],
-  "mcdonalds": [
-    {
-      "ipa": "/məkˈdɑnəɫdz/",
-      "vie": "mợc-đa-nờ-lờ-đờ-dờ",
-    },
-  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -110,6 +117,18 @@ it("vieVowelEpenthesis skipAll", async () => {
 
   expect(trans).toMatchInlineSnapshot(`
 {
+  "McDonald's": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ",
+    },
+  ],
+  "Responsibility": [
+    {
+      "ipa": "/ɹiˌspɑnsəˈbɪɫəti/",
+      "vie": "rì-pan-xờ-bi-lờ-thỳ",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
@@ -168,12 +187,6 @@ it("vieVowelEpenthesis skipAll", async () => {
       "vie": "ma-kịt",
     },
   ],
-  "mcdonalds": [
-    {
-      "ipa": "/məkˈdɑnəɫdz/",
-      "vie": "mợc-đa-nờ",
-    },
-  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -197,6 +210,18 @@ it("vieVowelEpenthesis skipLast", async () => {
 
   expect(trans).toMatchInlineSnapshot(`
 {
+  "McDonald's": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-lờ-đờ",
+    },
+  ],
+  "Responsibility": [
+    {
+      "ipa": "/ɹiˌspɑnsəˈbɪɫəti/",
+      "vie": "rì-xờ-pan-xờ-bi-lờ-thỳ",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
@@ -255,12 +280,6 @@ it("vieVowelEpenthesis skipLast", async () => {
       "vie": "ma-rờ-kịt",
     },
   ],
-  "mcdonalds": [
-    {
-      "ipa": "/məkˈdɑnəɫdz/",
-      "vie": "mợc-đa-nờ-lờ-đờ",
-    },
-  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -283,6 +302,18 @@ it("vieVowelEpenthesis empty replacement", async () => {
 
   expect(trans).toMatchInlineSnapshot(`
 {
+  "McDonald's": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-l-đ-d",
+    },
+  ],
+  "Responsibility": [
+    {
+      "ipa": "/ɹiˌspɑnsəˈbɪɫəti/",
+      "vie": "rì-x-pan-xờ-bi-lờ-thỳ",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
@@ -341,12 +372,6 @@ it("vieVowelEpenthesis empty replacement", async () => {
       "vie": "ma-r-kịt",
     },
   ],
-  "mcdonalds": [
-    {
-      "ipa": "/məkˈdɑnəɫdz/",
-      "vie": "mợc-đa-nờ-l-đ-d",
-    },
-  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -370,6 +395,18 @@ it("vieVowelEpenthesis replacement", async () => {
 
   expect(trans).toMatchInlineSnapshot(`
 {
+  "McDonald's": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-lxxx-đxxx-dxxx",
+    },
+  ],
+  "Responsibility": [
+    {
+      "ipa": "/ɹiˌspɑnsəˈbɪɫəti/",
+      "vie": "rì-xxxx-pan-xờ-bi-lờ-thỳ",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
@@ -426,12 +463,6 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-rxxx-kịt",
-    },
-  ],
-  "mcdonalds": [
-    {
-      "ipa": "/məkˈdɑnəɫdz/",
-      "vie": "mợc-đa-nờ-lxxx-đxxx-dxxx",
     },
   ],
   "young": [
@@ -629,7 +660,7 @@ it("CCV & CCCV stress", async () => {
             "ɫ",
             "æ",
           ],
-          "stress": true,
+          "stress": 1,
         },
         {
           "parts": [
@@ -672,7 +703,7 @@ it("CCV & CCCV stress", async () => {
             "ɹ",
             "u",
           ],
-          "stress": true,
+          "stress": 1,
         },
       ],
       "ipa": "/ˈskɹu/",
@@ -701,7 +732,7 @@ it("CCV & CCCV stress", async () => {
             "ɹ",
             "eɪ",
           ],
-          "stress": true,
+          "stress": 1,
         },
       ],
       "ipa": "/ˈspɹeɪ/",
@@ -723,7 +754,7 @@ it("CCV & CCCV stress", async () => {
             "kw",
             "aɪ",
           ],
-          "stress": true,
+          "stress": 1,
         },
         {
           "parts": [
@@ -752,7 +783,7 @@ it("CCV & CCCV stress", async () => {
             "tɹ",
             "eɪ",
           ],
-          "stress": true,
+          "stress": 1,
         },
         {
           "parts": [
@@ -766,7 +797,7 @@ it("CCV & CCCV stress", async () => {
             "f",
             "ɔ",
           ],
-          "stress": true,
+          "stress": 1,
         },
         {
           "parts": [
