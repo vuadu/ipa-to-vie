@@ -11,6 +11,7 @@ const words = [
   { word: "young", ipa: "/ˈjəŋ/" },
   { word: "chrome", ipa: "/ˈkɹoʊm/" },
   { word: "angel", ipa: "/ˈeɪndʒəɫ/" },
+  { word: "mcdonalds", ipa: "/məkˈdɑnəɫdz/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
@@ -61,7 +62,7 @@ it("vieVowelEpenthesis default", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đấc",
+      "vie": "đớc",
     },
   ],
   "enjoy": [
@@ -78,6 +79,12 @@ it("vieVowelEpenthesis default", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-rờ-kịt",
+    },
+  ],
+  "mcdonalds": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-lờ-đờ-dờ",
     },
   ],
   "young": [
@@ -142,7 +149,7 @@ it("vieVowelEpenthesis skipAll", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đấc",
+      "vie": "đớc",
     },
   ],
   "enjoy": [
@@ -159,6 +166,12 @@ it("vieVowelEpenthesis skipAll", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-kịt",
+    },
+  ],
+  "mcdonalds": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ",
     },
   ],
   "young": [
@@ -223,7 +236,7 @@ it("vieVowelEpenthesis skipLast", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đấc",
+      "vie": "đớc",
     },
   ],
   "enjoy": [
@@ -240,6 +253,12 @@ it("vieVowelEpenthesis skipLast", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-rờ-kịt",
+    },
+  ],
+  "mcdonalds": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-lờ-đờ",
     },
   ],
   "young": [
@@ -303,7 +322,7 @@ it("vieVowelEpenthesis empty replacement", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đấc",
+      "vie": "đớc",
     },
   ],
   "enjoy": [
@@ -320,6 +339,12 @@ it("vieVowelEpenthesis empty replacement", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-r-kịt",
+    },
+  ],
+  "mcdonalds": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-l-đ-d",
     },
   ],
   "young": [
@@ -384,7 +409,7 @@ it("vieVowelEpenthesis replacement", async () => {
   "duck": [
     {
       "ipa": "/ˈdək/",
-      "vie": "đấc",
+      "vie": "đớc",
     },
   ],
   "enjoy": [
@@ -401,6 +426,12 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-rxxx-kịt",
+    },
+  ],
+  "mcdonalds": [
+    {
+      "ipa": "/məkˈdɑnəɫdz/",
+      "vie": "mợc-đa-nờ-lxxx-đxxx-dxxx",
     },
   ],
   "young": [
