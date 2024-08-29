@@ -10,6 +10,7 @@ const words = [
   { word: "dark", ipa: "/ˈdɑɹk/" },
   { word: "young", ipa: "/ˈjəŋ/" },
   { word: "chrome", ipa: "/ˈkɹoʊm/" },
+  { word: "angel", ipa: "/ˈeɪndʒəɫ/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
@@ -25,6 +26,12 @@ it("vieVowelEpenthesis default", async () => {
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
       "vie": "ờ-quây-nờ-thờn-xờ-sịp",
+    },
+  ],
+  "angel": [
+    {
+      "ipa": "/ˈeɪndʒəɫ/",
+      "vie": "ên-dờ-lờ",
     },
   ],
   "apple": [
@@ -102,6 +109,12 @@ it("vieVowelEpenthesis skipAll", async () => {
       "vie": "ờ-quây-thờn-sịp",
     },
   ],
+  "angel": [
+    {
+      "ipa": "/ˈeɪndʒəɫ/",
+      "vie": "ên-dờ",
+    },
+  ],
   "apple": [
     {
       "ipa": "/ˈæpəɫ/",
@@ -175,6 +188,12 @@ it("vieVowelEpenthesis skipLast", async () => {
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
       "vie": "ờ-quây-nờ-thờn-xờ-sịp",
+    },
+  ],
+  "angel": [
+    {
+      "ipa": "/ˈeɪndʒəɫ/",
+      "vie": "ên-dờ",
     },
   ],
   "apple": [
@@ -251,6 +270,12 @@ it("vieVowelEpenthesis empty replacement", async () => {
       "vie": "ờ-quây-n-thờn-x-sịp",
     },
   ],
+  "angel": [
+    {
+      "ipa": "/ˈeɪndʒəɫ/",
+      "vie": "ên-dờ-l",
+    },
+  ],
   "apple": [
     {
       "ipa": "/ˈæpəɫ/",
@@ -324,6 +349,12 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
       "vie": "ờ-quây-nxxx-thờn-xxxx-sịp",
+    },
+  ],
+  "angel": [
+    {
+      "ipa": "/ˈeɪndʒəɫ/",
+      "vie": "ên-dờ-lxxx",
     },
   ],
   "apple": [

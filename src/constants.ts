@@ -120,6 +120,7 @@ export const ENDING_VOWEL_MAPPING: Record<string, string> = {
   ʊt: "ut",
   ʊŋ: "uung",
   ʊɡ: "uc",
+  eɪn: "ên",
 };
 
 export const LETTER_MAPPING: Record<string, string> = {
