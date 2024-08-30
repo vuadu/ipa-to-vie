@@ -8,3 +8,8 @@ words:
   - vuadu
 ignoreWords: []
 import: []
+ignoreRegExpList:
+  - >-
+    /"/[^"]+"/
+  - >-
+    /vie": "[^"]+"/
