@@ -11,7 +11,7 @@ const words = [
   { word: "young", ipa: "/ˈjəŋ/" },
   { word: "chrome", ipa: "/ˈkɹoʊm/" },
   { word: "angel", ipa: "/ˈeɪndʒəɫ/" },
-  { word: "McDonald's", ipa: "/məkˈdɑnəɫdz/" },
+  { word: "McDonald's", ipa: "/məkdˈɑnəɫdz/" },
   { word: "Responsibility", ipa: "/ɹiˌspɑnsəˈbɪɫəti/" },
 ];
 
@@ -26,7 +26,7 @@ it("vieVowelEpenthesis default", async () => {
 {
   "McDonald's": [
     {
-      "ipa": "/məkˈdɑnəɫdz/",
+      "ipa": "/məkdˈɑnəɫdz/",
       "vie": "mợc-đa-nờ-lờ-đờ-dờ",
     },
   ],
@@ -119,7 +119,7 @@ it("vieVowelEpenthesis skipAll", async () => {
 {
   "McDonald's": [
     {
-      "ipa": "/məkˈdɑnəɫdz/",
+      "ipa": "/məkdˈɑnəɫdz/",
       "vie": "mợc-đa-nờ",
     },
   ],
@@ -212,7 +212,7 @@ it("vieVowelEpenthesis skipLast", async () => {
 {
   "McDonald's": [
     {
-      "ipa": "/məkˈdɑnəɫdz/",
+      "ipa": "/məkdˈɑnəɫdz/",
       "vie": "mợc-đa-nờ-lờ-đờ",
     },
   ],
@@ -304,7 +304,7 @@ it("vieVowelEpenthesis empty replacement", async () => {
 {
   "McDonald's": [
     {
-      "ipa": "/məkˈdɑnəɫdz/",
+      "ipa": "/məkdˈɑnəɫdz/",
       "vie": "mợc-đa-nờ-l-đ-d",
     },
   ],
@@ -397,7 +397,7 @@ it("vieVowelEpenthesis replacement", async () => {
 {
   "McDonald's": [
     {
-      "ipa": "/məkˈdɑnəɫdz/",
+      "ipa": "/məkdˈɑnəɫdz/",
       "vie": "mợc-đa-nờ-lxxx-đxxx-dxxx",
     },
   ],

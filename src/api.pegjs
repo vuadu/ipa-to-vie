@@ -2,13 +2,15 @@ Word = " "* "/"? syllables:Syllable* "/"? " "* {
     return syllables
 }
 Syllable =
-    stress:("ˈ" / "ˌ")? head:Consonant tail:(Vowel EndingConsonant) !(Diphthong / Vowel)  {
+    stress:("ˈ" / "ˌ")? head:Consonant stress2:("ˈ" / "ˌ")? tail:(Vowel EndingConsonant) !(Diphthong / Vowel)  {
+    stress = stress || stress2
     return {
         stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [head, tail.filter(c => c).join("")]
         }
     }
-    / stress:("ˈ" / "ˌ")? head:Consonant tail:(Diphthong / Vowel)? {
+    / stress:("ˈ" / "ˌ")? head:Consonant stress2:("ˈ" / "ˌ")? tail:(Diphthong / Vowel)? {
+    stress = stress || stress2
     return {
         stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [head, tail]
