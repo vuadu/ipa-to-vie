@@ -81,6 +81,7 @@ export const ENDING_VOWEL_MAPPING: Record<string, string> = {
   ə: "ơ",
   əb: "ơp",
   əh: "ơ",
+  eɪt: "êt",
   əj: "ơi",
   ək: "ơc",
   əm: "ơm",

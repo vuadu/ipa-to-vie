@@ -22,7 +22,7 @@ Syllable =
         parts: [null, tail.filter(c => c).join("")]
         }
     }
-    / stress:("ˈ" / "ˌ")? tail:(Diphthong EndingConsonant?) {
+    / stress:("ˈ" / "ˌ")? tail:(Diphthong DiphthongEndingConsonant?) {
     return {
         stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
         parts: [null, tail.filter(c => c).join("")]
@@ -74,6 +74,18 @@ EndingConsonant   =
     / "n"
     / "e"
     / "p"
+    / "h"
+    / "ŋ"
+DiphthongEndingConsonant   =
+    "b"
+    / "t" !"ʃ" { return text() }
+    / "k"
+    / "m"
+    / "ɡ"
+    / "ɛ"
+    / "n"
+    / "e"
+//    / "p"
     / "h"
     / "ŋ"
 Diphthong = "oʊ" / "eɪ" / "aɪ" / "aʊ" / "ju" / "jə" / "jæ" / "jɑ" / "jʊ" / "jɛ" / "jɪ" / "jɔ" / "ji" / "joʊ" / "jaʊ" / "jeɪ" / "əj" / "ɔɪ"

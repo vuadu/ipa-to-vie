@@ -13,6 +13,8 @@ const words = [
   { word: "angel", ipa: "/ˈeɪndʒəɫ/" },
   { word: "McDonald's", ipa: "/məkdˈɑnəɫdz/" },
   { word: "Responsibility", ipa: "/ɹiˌspɑnsəˈbɪɫəti/" },
+  { word: "eight", ipa: "/ˈeɪt/" },
+  { word: "apple", ipa: "/ˈeɪpɹəɫ/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
@@ -50,8 +52,8 @@ it("vieVowelEpenthesis default", async () => {
   ],
   "apple": [
     {
-      "ipa": "/ˈæpəɫ/",
-      "vie": "e-pờ-lờ",
+      "ipa": "/ˈeɪpɹəɫ/",
+      "vie": "ây-pờ-rờ-lờ",
     },
   ],
   "apply": [
@@ -76,6 +78,12 @@ it("vieVowelEpenthesis default", async () => {
     {
       "ipa": "/ˈdək/",
       "vie": "đớc",
+    },
+  ],
+  "eight": [
+    {
+      "ipa": "/ˈeɪt/",
+      "vie": "ết",
     },
   ],
   "enjoy": [
@@ -143,8 +151,8 @@ it("vieVowelEpenthesis skipAll", async () => {
   ],
   "apple": [
     {
-      "ipa": "/ˈæpəɫ/",
-      "vie": "e-pờ",
+      "ipa": "/ˈeɪpɹəɫ/",
+      "vie": "ây-rờ",
     },
   ],
   "apply": [
@@ -169,6 +177,12 @@ it("vieVowelEpenthesis skipAll", async () => {
     {
       "ipa": "/ˈdək/",
       "vie": "đớc",
+    },
+  ],
+  "eight": [
+    {
+      "ipa": "/ˈeɪt/",
+      "vie": "ết",
     },
   ],
   "enjoy": [
@@ -236,8 +250,8 @@ it("vieVowelEpenthesis skipLast", async () => {
   ],
   "apple": [
     {
-      "ipa": "/ˈæpəɫ/",
-      "vie": "e-pờ",
+      "ipa": "/ˈeɪpɹəɫ/",
+      "vie": "ây-pờ-rờ",
     },
   ],
   "apply": [
@@ -262,6 +276,12 @@ it("vieVowelEpenthesis skipLast", async () => {
     {
       "ipa": "/ˈdək/",
       "vie": "đớc",
+    },
+  ],
+  "eight": [
+    {
+      "ipa": "/ˈeɪt/",
+      "vie": "ết",
     },
   ],
   "enjoy": [
@@ -328,8 +348,8 @@ it("vieVowelEpenthesis empty replacement", async () => {
   ],
   "apple": [
     {
-      "ipa": "/ˈæpəɫ/",
-      "vie": "e-pờ-l",
+      "ipa": "/ˈeɪpɹəɫ/",
+      "vie": "ây-p-rờ-l",
     },
   ],
   "apply": [
@@ -354,6 +374,12 @@ it("vieVowelEpenthesis empty replacement", async () => {
     {
       "ipa": "/ˈdək/",
       "vie": "đớc",
+    },
+  ],
+  "eight": [
+    {
+      "ipa": "/ˈeɪt/",
+      "vie": "ết",
     },
   ],
   "enjoy": [
@@ -421,8 +447,8 @@ it("vieVowelEpenthesis replacement", async () => {
   ],
   "apple": [
     {
-      "ipa": "/ˈæpəɫ/",
-      "vie": "e-pờ-lxxx",
+      "ipa": "/ˈeɪpɹəɫ/",
+      "vie": "ây-pxxx-rờ-lxxx",
     },
   ],
   "apply": [
@@ -447,6 +473,12 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/ˈdək/",
       "vie": "đớc",
+    },
+  ],
+  "eight": [
+    {
+      "ipa": "/ˈeɪt/",
+      "vie": "ết",
     },
   ],
   "enjoy": [
@@ -491,18 +523,24 @@ it("k & c rule", async () => {
       word === "cake"
         ? {
             ơ: ipaToVie(i).map(({ ipa, vie }) => ({ ipa, vie })),
-            ui: ipaToVie(i, { vowelEpenthesis: { replacement: "ui" } }).map(({ ipa, vie }) => ({
-              ipa,
-              vie,
-            })),
-            i: ipaToVie(i, { vowelEpenthesis: { replacement: "i" } }).map(({ ipa, vie }) => ({
-              ipa,
-              vie,
-            })),
-            êu: ipaToVie(i, { vowelEpenthesis: { replacement: "êu" } }).map(({ ipa, vie }) => ({
-              ipa,
-              vie,
-            })),
+            ui: ipaToVie(i, { vowelEpenthesis: { replacement: "ui" } }).map(
+              ({ ipa, vie }) => ({
+                ipa,
+                vie,
+              })
+            ),
+            i: ipaToVie(i, { vowelEpenthesis: { replacement: "i" } }).map(
+              ({ ipa, vie }) => ({
+                ipa,
+                vie,
+              })
+            ),
+            êu: ipaToVie(i, { vowelEpenthesis: { replacement: "êu" } }).map(
+              ({ ipa, vie }) => ({
+                ipa,
+                vie,
+              })
+            ),
           }
         : ipaToVie(i).map(({ ipa, vie }) => ({
             ipa,
@@ -578,10 +616,12 @@ it("uppercase stress", async () => {
   const trans = {};
 
   words2.map(({ word, ipa: i }) => {
-    trans[word] = ipaToVie(i, { uppercaseStress: true }).map(({ ipa, vie }) => ({
-      ipa,
-      vie,
-    }));
+    trans[word] = ipaToVie(i, { uppercaseStress: true }).map(
+      ({ ipa, vie }) => ({
+        ipa,
+        vie,
+      })
+    );
   });
 
   expect(trans).toMatchInlineSnapshot(`

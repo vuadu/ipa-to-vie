@@ -43,18 +43,32 @@ export const addTonalMark = (vie: string, isStress?: number) => {
 };
 
 export const vieConsonantRule = (consonant: string, vowel: string) => {
-  if (vowel && consonant === "k" && ["a", "o", "u"].includes(vowel[0].normalize("NFD")[0])) {
+  if (
+    vowel &&
+    consonant === "k" &&
+    ["a", "o", "u"].includes(vowel[0].normalize("NFD")[0])
+  ) {
     return "c" + vowel;
   }
-  if (vowel && consonant === "c" && ["e", "i"].includes(vowel[0].normalize("NFD")[0])) {
+  if (
+    vowel &&
+    consonant === "c" &&
+    ["e", "i"].includes(vowel[0].normalize("NFD")[0])
+  ) {
     return "k" + vowel;
   }
 
   return consonant + vowel;
 };
 
-export const syllableToVie = ({ syllable, options, isLastSyllable }: SyllableToVieProps) => {
-  const isNullVowel = ENDING_VOWEL_MAPPING[syllable.parts[1] ?? ""] ? false : true;
+export const syllableToVie = ({
+  syllable,
+  options,
+  isLastSyllable,
+}: SyllableToVieProps) => {
+  const isNullVowel = ENDING_VOWEL_MAPPING[syllable.parts[1] ?? ""]
+    ? false
+    : true;
 
   let vieSyllable = `${LETTER_MAPPING[syllable.parts[0] ?? ""] ?? ""}${
     ENDING_VOWEL_MAPPING[syllable.parts[1] ?? ""] ?? NULL_MAPPING
@@ -85,10 +99,16 @@ export const syllableToVie = ({ syllable, options, isLastSyllable }: SyllableToV
   });
 
   if (isNullVowel) {
-    if (options?.vowelEpenthesis?.skipAll || (options?.vowelEpenthesis?.skipLast && isLastSyllable))
+    if (
+      options?.vowelEpenthesis?.skipAll ||
+      (options?.vowelEpenthesis?.skipLast && isLastSyllable)
+    )
       return "";
     vieSyllable = vieSyllable.replace(/._/g, (m) => {
-      return vieConsonantRule(m[0], options?.vowelEpenthesis?.replacement ?? "ơ");
+      return vieConsonantRule(
+        m[0],
+        options?.vowelEpenthesis?.replacement ?? "ơ"
+      );
     });
   } else {
     vieSyllable = vieSyllable
