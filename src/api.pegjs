@@ -2,47 +2,37 @@ Word = " "* "/"? syllables:Syllable* "/"? " "* {
     return syllables
 }
 Syllable =
-    stress:("ˈ" / "ˌ")? head:Consonant stress2:("ˈ" / "ˌ")? tail:(Vowel EndingConsonant) !(Diphthong / Vowel)  {
-    stress = stress || stress2
-    return {
-        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
-        parts: [head, tail.filter(c => c).join("")]
+    stress:("ˈ" / "ˌ")? head:Consonant stress2:("ˈ" / "ˌ")? tail:SyllableEnding  {
+      stress = stress || stress2 || /[ˈˌ]/.test(head) && head[0]
+      return {
+          stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
+          parts: [head.replace(/[ˈˌ]/, ''), tail]
         }
     }
-    / stress:("ˈ" / "ˌ")? head:Consonant stress2:("ˈ" / "ˌ")? tail:(Diphthong / Vowel)? {
-    stress = stress || stress2
-    return {
-        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
-        parts: [head, tail]
+    / stress:("ˈ" / "ˌ")? head:Consonant {
+      stress = stress || /[ˈˌ]/.test(head) && head[0]
+      return {
+          stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
+	        parts: [head.replace(/[ˈˌ]/, ''), null]
         }
     }
-    / stress:("ˈ" / "ˌ")? tail:(Vowel EndingConsonant) !Vowel {
-    return {
-        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
-        parts: [null, tail.filter(c => c).join("")]
-        }
-    }
-    / stress:("ˈ" / "ˌ")? tail:(Diphthong DiphthongEndingConsonant?) {
-    return {
-        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
-        parts: [null, tail.filter(c => c).join("")]
-        }
-    }
-    / stress:("ˈ" / "ˌ")? tail:Vowel {
-    return {
-        stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
-        parts: [null, tail]
+    / stress:("ˈ" / "ˌ")? tail:SyllableEnding {
+      return {
+          stress: stress === 'ˈ' ? 1 : stress === 'ˌ' ? 2 : undefined,
+          parts: [null, text().replace(/[ˈˌ]/, '')]
         }
     }
 SyllableEnding =
-    tail:(Vowel EndingConsonant) !Vowel { return tail.filter(c => c).join("") }
+    tail:((((Vowel EndingConsonant) / (DiphthongEnding)) !(Diphthong / Vowel)) / Diphthong / Vowel) {
+    	return text();
+    }
 
 Consonant =
     "b"
     / "tʃ"
     / "tɹ"
     / "t"
-    / "kw"
+    / "k" stress:("ˈ" / "ˌ")?  "w" { return (stress ?? '') + "kw" }
     / "k"
     / "z"
     / "ɹ"
@@ -67,7 +57,7 @@ Consonant =
 EndingConsonant   =
     "b"
     / "t" !"ʃ" { return text() }
-    / "k"
+    / "k" !(("ˈ" / "ˌ")? "w") { return text() }
     / "m"
     / "ɡ"
     / "ɛ"
@@ -76,17 +66,6 @@ EndingConsonant   =
     / "p"
     / "h"
     / "ŋ"
-DiphthongEndingConsonant   =
-    "b"
-    / "t" !"ʃ" { return text() }
-    / "k"
-    / "m"
-    / "ɡ"
-    / "ɛ"
-    / "n"
-    / "e"
-//    / "p"
-    / "h"
-    / "ŋ"
+DiphthongEnding = "eɪt" / "jəŋ" / "eɪn"
 Diphthong = "oʊ" / "eɪ" / "aɪ" / "aʊ" / "ju" / "jə" / "jæ" / "jɑ" / "jʊ" / "jɛ" / "jɪ" / "jɔ" / "ji" / "joʊ" / "jaʊ" / "jeɪ" / "əj" / "ɔɪ"
 Vowel = "a" / "ʊ" / "ə" / "ɔ" / "u" / "ɪ" / "o" / "ɛ" / "e" / "i" / "ɑ" / "ɝ" / "æ" / "j"

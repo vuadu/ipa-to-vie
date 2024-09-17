@@ -2,6 +2,7 @@ const { ipaToVie } = require("../src/ipa-to-vie");
 
 const words = [
   { word: "acquaintanceship", ipa: "/əˈkweɪntənsʃɪp/" },
+  { word: "acquaintance", ipa: "/əkˈweɪntəns/" },
   { word: "market", ipa: "/ˈmɑɹkət/, /ˈmɑɹkɪt/" }, //
   { word: "apply", ipa: "/əˈpɫaɪ/" },
   { word: "apple", ipa: "/ˈæpəɫ/" },
@@ -15,6 +16,7 @@ const words = [
   { word: "Responsibility", ipa: "/ɹiˌspɑnsəˈbɪɫəti/" },
   { word: "eight", ipa: "/ˈeɪt/" },
   { word: "apple", ipa: "/ˈeɪpɹəɫ/" },
+  { word: "owns", ipa: "/ˈoʊnz/" },
 ];
 
 it("vieVowelEpenthesis default", async () => {
@@ -38,10 +40,16 @@ it("vieVowelEpenthesis default", async () => {
       "vie": "rì-xờ-pan-xờ-bi-lờ-thỳ",
     },
   ],
+  "acquaintance": [
+    {
+      "ipa": "/əkˈweɪntəns/",
+      "vie": "ờ-quên-thờn-xờ",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
-      "vie": "ờ-quây-nờ-thờn-xờ-sịp",
+      "vie": "ờ-quên-thờn-xờ-sịp",
     },
   ],
   "angel": [
@@ -102,6 +110,12 @@ it("vieVowelEpenthesis default", async () => {
       "vie": "ma-rờ-kịt",
     },
   ],
+  "owns": [
+    {
+      "ipa": "/ˈoʊnz/",
+      "vie": "âu-nờ-dờ",
+    },
+  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -137,10 +151,16 @@ it("vieVowelEpenthesis skipAll", async () => {
       "vie": "rì-pan-xờ-bi-lờ-thỳ",
     },
   ],
+  "acquaintance": [
+    {
+      "ipa": "/əkˈweɪntəns/",
+      "vie": "ờ-quên-thờn",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
-      "vie": "ờ-quây-thờn-sịp",
+      "vie": "ờ-quên-thờn-sịp",
     },
   ],
   "angel": [
@@ -201,6 +221,12 @@ it("vieVowelEpenthesis skipAll", async () => {
       "vie": "ma-kịt",
     },
   ],
+  "owns": [
+    {
+      "ipa": "/ˈoʊnz/",
+      "vie": "âu",
+    },
+  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -236,10 +262,16 @@ it("vieVowelEpenthesis skipLast", async () => {
       "vie": "rì-xờ-pan-xờ-bi-lờ-thỳ",
     },
   ],
+  "acquaintance": [
+    {
+      "ipa": "/əkˈweɪntəns/",
+      "vie": "ờ-quên-thờn",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
-      "vie": "ờ-quây-nờ-thờn-xờ-sịp",
+      "vie": "ờ-quên-thờn-xờ-sịp",
     },
   ],
   "angel": [
@@ -300,6 +332,12 @@ it("vieVowelEpenthesis skipLast", async () => {
       "vie": "ma-rờ-kịt",
     },
   ],
+  "owns": [
+    {
+      "ipa": "/ˈoʊnz/",
+      "vie": "âu-nờ",
+    },
+  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -334,10 +372,16 @@ it("vieVowelEpenthesis empty replacement", async () => {
       "vie": "rì-x-pan-xờ-bi-lờ-thỳ",
     },
   ],
+  "acquaintance": [
+    {
+      "ipa": "/əkˈweɪntəns/",
+      "vie": "ờ-quên-thờn-x",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
-      "vie": "ờ-quây-n-thờn-x-sịp",
+      "vie": "ờ-quên-thờn-x-sịp",
     },
   ],
   "angel": [
@@ -398,6 +442,12 @@ it("vieVowelEpenthesis empty replacement", async () => {
       "vie": "ma-r-kịt",
     },
   ],
+  "owns": [
+    {
+      "ipa": "/ˈoʊnz/",
+      "vie": "âu-n-d",
+    },
+  ],
   "young": [
     {
       "ipa": "/ˈjəŋ/",
@@ -433,10 +483,16 @@ it("vieVowelEpenthesis replacement", async () => {
       "vie": "rì-xxxx-pan-xờ-bi-lờ-thỳ",
     },
   ],
+  "acquaintance": [
+    {
+      "ipa": "/əkˈweɪntəns/",
+      "vie": "ờ-quên-thờn-xxxx",
+    },
+  ],
   "acquaintanceship": [
     {
       "ipa": "/əˈkweɪntənsʃɪp/",
-      "vie": "ờ-quây-nxxx-thờn-xxxx-sịp",
+      "vie": "ờ-quên-thờn-xxxx-sịp",
     },
   ],
   "angel": [
@@ -495,6 +551,12 @@ it("vieVowelEpenthesis replacement", async () => {
     {
       "ipa": "/ˈmɑɹkɪt/",
       "vie": "ma-rxxx-kịt",
+    },
+  ],
+  "owns": [
+    {
+      "ipa": "/ˈoʊnz/",
+      "vie": "âu-nxxx-dxxx",
     },
   ],
   "young": [
@@ -821,16 +883,9 @@ it("CCV & CCCV stress", async () => {
         {
           "parts": [
             "tɹ",
-            "eɪ",
+            "eɪt",
           ],
           "stress": 1,
-        },
-        {
-          "parts": [
-            "t",
-            null,
-          ],
-          "stress": undefined,
         },
         {
           "parts": [
@@ -869,7 +924,7 @@ it("CCV & CCCV stress", async () => {
         },
       ],
       "ipa": "/ˈstɹeɪtˈfɔɹwɝd/",
-      "vie": "xờ-TRÂY-thờ-PHO-rờ-uờ-rờ-đờ",
+      "vie": "xờ-TRẾT-PHO-rờ-uờ-rờ-đờ",
     },
   ],
 }
