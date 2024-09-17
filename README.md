@@ -43,7 +43,7 @@ npm install @vuadu/ipa-to-vie
 import { ipaToVie } from '@vuadu/ipa-to-vie';
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/'); // acquaintanceship
-console.log(viePhonetic) // ờ-quây-nờ-thờn-xờ-sịp
+console.log(viePhonetic) // ờ-quên-thờn-xờ-sịp
 ```
 
 ```ts
@@ -52,7 +52,7 @@ import { ipaToVie } from '@vuadu/ipa-to-vie';
 const options = { uppercaseStress: true };
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/'); // acquaintanceship
-console.log(viePhonetic) // ờ-QUÂY-nờ-thờn-xờ-sịp
+console.log(viePhonetic) // ờ-QUÊN-thờn-xờ-sịp
 ```
 
 ```ts
@@ -61,14 +61,14 @@ import { ipaToVie } from '@vuadu/ipa-to-vie';
 const options = { vowelEpenthesis: { skipAll: true } };
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/', options); // acquaintanceship
-console.log(viePhonetic) // ờ-quây-thờn-sịp
+console.log(viePhonetic) // ờ-quên-thờn-sịp
 ```
 
 ```ts
 import { ipaToVie } from '@vuadu/ipa-to-vie';
 
-const options = { vowelEpenthesis: { replacement: "_" } };
+const options = { vowelEpenthesis: { replacement: "" } };
 
 const viePhonetic = ipaToVie('/əˈkweɪntənsʃɪp/', options); // acquaintanceship
-console.log(viePhonetic) // ờ-quây-n_-thờn-x_-sịp
+console.log(viePhonetic) // ờ-quên-thờn-x-sịp
 ```
